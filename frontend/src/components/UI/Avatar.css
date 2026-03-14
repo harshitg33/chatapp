@@ -1,0 +1,36 @@
+/* ─── Avatar Component ───────────────────────────────────────────────────── */
+
+.avatar {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  position: relative;
+  flex-shrink: 0;
+  user-select: none;
+  transition: transform var(--transition-fast);
+}
+
+.avatar:hover {
+  transform: scale(1.04);
+}
+
+/* ── Online/Offline Indicator Dot ── */
+.avatar-dot {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-secondary);
+}
+
+.avatar-dot--online {
+  background: var(--online-color);
+  box-shadow: 0 0 6px var(--online-color);
+}
+
+.avatar-dot--offline {
+  background: var(--offline-color);
+}

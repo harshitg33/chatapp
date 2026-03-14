@@ -1,0 +1,58 @@
+/* ─── Message Bubbles ────────────────────────────────────────────────────── */
+
+.msg-row {
+  display: flex;
+  margin-bottom: 4px;
+  animation: fadeIn 0.2s ease;
+}
+
+.msg-row--mine { justify-content: flex-end; }
+.msg-row--theirs { justify-content: flex-start; }
+
+/* Reduce spacing for grouped messages from same sender */
+.msg-row--grouped { margin-bottom: 2px; }
+
+/* ── Bubble ── */
+.msg-bubble {
+  max-width: 72%;
+  min-width: 80px;
+  padding: 10px 14px;
+  border-radius: var(--radius-xl);
+  position: relative;
+  word-wrap: break-word;
+}
+
+/* Sent messages (right side) */
+.msg-bubble--mine {
+  background: var(--msg-sent);
+  color: var(--msg-sent-text);
+  border-bottom-right-radius: 6px;
+  box-shadow: 0 2px 8px rgba(108, 99, 255, 0.3);
+}
+
+/* Received messages (left side) */
+.msg-bubble--theirs {
+  background: var(--msg-received);
+  color: var(--msg-received-text);
+  border-bottom-left-radius: 6px;
+  border: 1px solid var(--border-subtle);
+}
+
+.msg-content {
+  font-size: 14.5px;
+  line-height: 1.5;
+  margin: 0;
+  padding-right: 48px; /* Space for timestamp */
+}
+
+.msg-time {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 10.5px;
+  opacity: 0.65;
+  white-space: nowrap;
+}
+
+.msg-bubble--mine .msg-time { color: rgba(255,255,255,0.7); }
+.msg-bubble--theirs .msg-time { color: var(--text-muted); }
