@@ -1,24 +1,13 @@
-/**
- * utils/socket.js — Socket.io client singleton.
- * Creates one socket connection reused across the app.
- */
-
 import { io } from "socket.io-client";
 
-const API = axios.create({
-  baseURL: "https://chatapp-ae1a.onrender.com",
-});
 let socket = null;
 
-/**
- * Initializes (or returns existing) Socket.io connection with JWT auth.
- * @param {string} token - JWT token for authentication
- */
 export const initSocket = (token) => {
   if (socket?.connected) return socket;
 
-  socket = io(SOCKET_URL, {
+  socket = io("https://chatapp-ae1a.onrender.com", {
     auth: { token },
+    transports: ["polling"],
     reconnection: true,
     reconnectionAttempts: 5,
     reconnectionDelay: 1000,
@@ -27,14 +16,8 @@ export const initSocket = (token) => {
   return socket;
 };
 
-/**
- * Returns the existing socket instance.
- */
 export const getSocket = () => socket;
 
-/**
- * Disconnects and clears the socket instance.
- */
 export const disconnectSocket = () => {
   if (socket) {
     socket.disconnect();
