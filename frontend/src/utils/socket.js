@@ -5,8 +5,9 @@
 
 import { io } from "socket.io-client";
 
-const SOCKET_URL = process.env.REACT_APP_SOCKET_URL || "http://localhost:5000";
-
+const API = axios.create({
+  baseURL: "https://chatapp-ae1a.onrender.com",
+});
 let socket = null;
 
 /**
