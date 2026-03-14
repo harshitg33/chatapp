@@ -32,6 +32,8 @@ const io = new Server(httpServer, {
     methods: ["GET", "POST"],
     credentials: false,
   },
+   transports: ["polling", "websocket"],  // ye line add karo
+  allowEIO3: true,   
 });
 
 // ─── Middleware ───────────────────────────────────────────────────────────────
