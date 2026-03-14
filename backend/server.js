@@ -28,16 +28,16 @@ const httpServer = http.createServer(app);
 // ─── Socket.io Setup ────────────────────────────────────────────────────────
 const io = new Server(httpServer, {
   cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    origin: "*",
     methods: ["GET", "POST"],
-    credentials: true,
+    credentials: false,
   },
 });
 
 // ─── Middleware ───────────────────────────────────────────────────────────────
 app.use(cors({
-  origin: process.env.CLIENT_URL || "http://localhost:3000",
-  credentials: true,
+  origin: "*",
+  credentials: false,
 }));
 app.use(express.json()); // Parse incoming JSON bodies
 
